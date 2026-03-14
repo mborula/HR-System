@@ -21,4 +21,29 @@ public class EmployeeService {
 	public Employee saveEmployee(Employee employee) {
 		return repository.save(employee);
 	}
+
+	public Employee getEmployeeById(Long id) {
+		return repository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Employee not found"));
+	}
+
+	public Employee updateEmployee(Long id, Employee updatedEmployee) {
+
+		Employee employee = repository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Employee not found"));
+
+		employee.setFirstName(updatedEmployee.getFirstName());
+		employee.setLastName(updatedEmployee.getLastName());
+		employee.setEmail(updatedEmployee.getEmail());
+		employee.setPosition(updatedEmployee.getPosition());
+		employee.setSalary(updatedEmployee.getSalary());
+		employee.setAddress(updatedEmployee.getAddress());
+		employee.setPhone(updatedEmployee.getPhone());
+
+		return repository.save(employee);
+	}
+
+	public void deleteEmployee(Long id) {
+		repository.deleteById(id);
+	}
 }
