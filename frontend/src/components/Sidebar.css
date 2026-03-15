@@ -1,0 +1,40 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #00334e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+.logo {
+  padding: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-family:  "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.nav-links li {
+  font-family:  "Open Sans", sans-serif;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #adb5bd;
+}
+
+.nav-links li:hover, .nav-links li.active {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+  border-left: 4px solid #ffc107; 
+}
