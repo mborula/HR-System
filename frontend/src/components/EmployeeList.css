@@ -1,0 +1,36 @@
+.employee-list-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.employee-list-container h1 {
+  color: #00334e;
+  margin-bottom: 20px;
+}
+
+.employee-list-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-list-container th, 
+.employee-list-container td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.employee-list-container th {
+  background-color: #00334e;
+  color: white;
+}
+
+.employee-list-container tr:nth-child(even) {
+  background-color: #f4f6f8;
+}
+
+.employee-list-container tr:hover {
+  background-color: #e0e7ed;
+}
