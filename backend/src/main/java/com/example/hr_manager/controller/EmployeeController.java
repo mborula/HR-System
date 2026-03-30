@@ -31,6 +31,11 @@ public class EmployeeController {
 		return service.getEmployeeById(id);
 	}
 
+    @GetMapping("/search")
+    public List<Employee> getEmployeesByLastName(@RequestParam("lastName") String lastName) {
+        return service.getEmployeesByLastName(lastName);
+    }
+
 	@PutMapping("/{id}")
 	public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
 		return service.updateEmployee(id, employee);

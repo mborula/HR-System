@@ -27,6 +27,10 @@ public class EmployeeService {
 				.orElseThrow(() -> new RuntimeException("Employee not found"));
 	}
 
+    public List<Employee> getEmployeesByLastName(String lastName) {
+        return repository.findByLastNameIgnoreCase(lastName);
+    }
+
 	public Employee updateEmployee(Long id, Employee updatedEmployee) {
 
 		Employee employee = repository.findById(id)
