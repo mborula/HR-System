@@ -14,7 +14,8 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://musical-orbit-5jj6jvwxvw43w9j-5173.app.github.dev/")
+                        .allowedOrigins("https://musical-orbit-5jj6jvwxvw43w9j-5173.app.github.dev/",
+                                "http://localhost:5173")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);

@@ -28,7 +28,7 @@ public class EmployeeService {
 	}
 
     public List<Employee> getEmployeesByLastName(String lastName) {
-        return repository.findByLastNameIgnoreCase(lastName);
+        return repository.findByLastNameContainingIgnoreCase(lastName);
     }
 
 	public Employee updateEmployee(Long id, Employee updatedEmployee) {

@@ -3,6 +3,7 @@ import "./EmployeeList.css";
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchEmployees = () => {
     fetch("http://localhost:8080/api/employees")
@@ -35,7 +36,17 @@ export default function EmployeeList() {
 
   return (
     <div className="employee-list-container">
-      <h1>Employee List</h1>
+        <h1 className="header-text">Employee List</h1>
+        <div className="header-search">
+          <input
+            className="search-field"
+            type="search"
+            placeholder="Enter employee last name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+     
       <table>
         <thead>
           <tr>
@@ -51,7 +62,11 @@ export default function EmployeeList() {
           </tr>
         </thead>
         <tbody>
-          {employees.map(emp => (
+          {employees
+              .filter(emp =>
+                emp.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map(emp => (
             <tr key={emp.id}>
               <td>{emp.firstName}</td>
               <td>{emp.lastName}</td>
