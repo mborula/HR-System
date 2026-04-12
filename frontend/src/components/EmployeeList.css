@@ -68,3 +68,22 @@
   border-color: #4a90e2;
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
 }
+
+.edit-button{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.delete-button{
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}

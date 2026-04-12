@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from './components/Sidebar'
 import AddEmployee from "./components/AddEmployee";
 import EmployeeList from "./components/EmployeeList";
+import EditEmployee from "./components/EditEmployee";
 
 import { Outlet } from "react-router-dom";
 
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route path="employees" element={<EmployeeList/>} />
           <Route path="add" element={<AddEmployee />} />
+          <Route path="edit" element={<EditEmployee/>}/>
           <Route path="delete" element={<DeleteEmployee />} />
           <Route path="departments" element={<Departments />} />
           <Route path="payroll" element={<Payroll />} />

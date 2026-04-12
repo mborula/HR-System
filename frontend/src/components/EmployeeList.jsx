@@ -5,6 +5,10 @@ export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const openEdit = (id) => {
+    window.location.href = `/edit?id=${id}`;
+  };
+
   const fetchEmployees = () => {
     fetch("http://localhost:8080/api/employees")
       .then(res => res.json())
@@ -77,19 +81,8 @@ export default function EmployeeList() {
               <td>{emp.salary}</td>
               <td>{emp.id}</td>
               <td>
-                <button
-                  onClick={() => deleteEmployee(emp.id)}
-                  style={{
-                    backgroundColor: "#dc3545",
-                    color: "white",
-                    border: "none",
-                    padding: "5px 10px",
-                    cursor: "pointer",
-                    borderRadius: "4px"
-                  }}
-                >
-                  Delete
-                </button>
+                  <button className="edit-button" onClick={() => openEdit(emp.id)}>Edit</button>
+                  <button className="delete-button" onClick={() => deleteEmployee(emp.id)}> Delete </button>
               </td>
             </tr>
           ))}

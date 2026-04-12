@@ -14,6 +14,9 @@ const Sidebar = () => {
         <li>
           <NavLink to="/add">Add employee</NavLink>
         </li>
+        <li>
+          <NavLink to="/edit">Edit employee</NavLink>
+        </li>
       </ul>
     </div>
   );
