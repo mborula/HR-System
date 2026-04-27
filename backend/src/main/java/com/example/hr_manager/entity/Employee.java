@@ -3,40 +3,30 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class Employee {
-	@Setter
-	@Getter
     @Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
-	@Getter
-    @Setter
     private String firstName;
-	@Setter
-    @Getter
     private String lastName;
-	@Setter
-    @Getter
     private String address;
-	@Setter
-    @Getter
     private String email;
-	@Setter
-    @Getter
     private String phone;
-	@Setter
-    @Getter
     private String position;
-	@Setter
-    @Getter
     private Double salary;
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	private Department department;
+    @ManyToOne
+    @JoinColumn(name = "vacation_id")
+    private Vacation vacation;
 
-	public Employee() {
+
+    public Employee() {
 	}
 
 	public Employee(String firstName, String lastName, String address,
