@@ -10,7 +10,7 @@ export default function EmployeeList() {
   };
 
   const fetchEmployees = () => {
-    fetch("http://localhost:8080/api/employees")
+    fetch("http://localhost:9000/api/employees")
       .then(res => res.json())
       .then(data => setEmployees(data))
       .catch(err => console.error("Error:", err));
@@ -25,7 +25,7 @@ export default function EmployeeList() {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:8080/api/employees/${id}`, {
+      const response = await fetch(`http://localhost:9000/api/employees/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {

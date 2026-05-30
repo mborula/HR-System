@@ -21,7 +21,7 @@ public class Employee {
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	private Department department;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 

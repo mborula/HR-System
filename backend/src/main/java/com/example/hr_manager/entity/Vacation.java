@@ -19,8 +19,7 @@ public class Vacation {
     private String startDate;
     private String endDate;
 
-    public Vacation(Long id, Employee employee, String startDate, String endDate) {
-        this.id = id;
+    public Vacation(Employee employee, String startDate, String endDate) {
         this.employee = employee;
         this.startDate = startDate;
         this.endDate = endDate;

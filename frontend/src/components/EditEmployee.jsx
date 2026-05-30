@@ -13,7 +13,7 @@ export default function EditEmployee() {
 
     const fetchEmployee = async (id) => {
         try {
-            const res = await fetch(`http://localhost:8080/api/employees/${id}`);
+            const res = await fetch(`http://localhost:9000/api/employees/${id}`);
 
             if (!res.ok) {
                 alert("Employee not found in the database");
