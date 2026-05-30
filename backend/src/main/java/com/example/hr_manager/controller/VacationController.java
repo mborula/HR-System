@@ -19,4 +19,17 @@ public class VacationController {
         return service.getAllVacation();
     }
 
+    @PostMapping
+    public Vacation createVacation((@RequestBody Vacation vacation){return service.saveVacation(vacation);}
+
+    @PutMapping("/{id}")
+    public Vacation updateVacation(@PathVariable Long id, @RequestBody Vacation vacation) {
+        return service.updateVacation(id, vacation);
+    }
+    
+    @DeleteMapping("/{id}")
+    public void deleteVacation(@PathVariable Long id) {
+        service.deleteVacation(id);
+    }
+
 }
