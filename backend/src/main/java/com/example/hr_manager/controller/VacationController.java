@@ -1,5 +1,7 @@
 package com.example.hr_manager.controller;
 
+import com.example.hr_manager.dto.VacationRequest;
+import com.example.hr_manager.dto.VacationResponse;
 import com.example.hr_manager.entity.Employee;
 import com.example.hr_manager.entity.Vacation;
 import com.example.hr_manager.service.VacationService;
@@ -15,13 +17,14 @@ public class VacationController {
     public VacationController(VacationService service) {this.service = service;}
 
     @GetMapping
-    public List<Vacation> getVacation() {
+    public List<VacationResponse> getVacation() {
         return service.getAllVacation();
     }
 
     @PostMapping
-    public Vacation createVacation((@RequestBody Vacation vacation){return service.saveVacation(vacation);}
-
+    public Vacation createVacation(@RequestBody VacationRequest request) {
+        return service.createVacation(request);
+    }
     @PutMapping("/{id}")
     public Vacation updateVacation(@PathVariable Long id, @RequestBody Vacation vacation) {
         return service.updateVacation(id, vacation);

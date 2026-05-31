@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AddEmployee.css";
+import "./styles/AddEmployee.css";
 
 export default function AddEmployee() {
   const [formData, setFormData] = useState({

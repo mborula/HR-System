@@ -20,6 +20,7 @@
   padding: 12px;
   border: 1px solid #ccc;
   text-align: left;
+
 }
 
 .employee-list-container th {
@@ -86,4 +87,9 @@
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px;
+}
+
+.action-buttons{
+  width: 120px;
+  text-align: center;
 }

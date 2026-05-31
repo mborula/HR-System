@@ -1,7 +1,10 @@
 package com.example.hr_manager.entity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,9 +24,9 @@ public class Employee {
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	private Department department;
-    @OneToOne
-    @JoinColumn(name = "vacation_id")
-    private Vacation vacation;
+	@OneToMany(mappedBy = "employee")
+	@JsonManagedReference
+	private List<Vacation> vacations;
 
 
     public Employee() {

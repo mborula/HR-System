@@ -3,8 +3,9 @@ import Sidebar from './components/Sidebar'
 import AddEmployee from "./components/AddEmployee";
 import EmployeeList from "./components/EmployeeList";
 import EditEmployee from "./components/EditEmployee";
-
+import VacationList from "./components/VacationList";
 import { Outlet } from "react-router-dom";
+import AddVacation from "./components/AddVacation";
 
 
 function DeleteEmployee() {
@@ -18,6 +19,7 @@ function Departments() {
 function Payroll() {
   return <h1>Payroll</h1>;
 }
+
 
 function Layout() {
   return (
@@ -39,7 +41,8 @@ export default function App() {
           <Route path="add" element={<AddEmployee />} />
           <Route path="edit" element={<EditEmployee/>}/>
           <Route path="delete" element={<DeleteEmployee />} />
-          <Route path="departments" element={<Departments />} />
+          <Route path="add-vacation" element={<AddVacation />} />
+          <Route path="vacation-list" element={<VacationList />} />
           <Route path="payroll" element={<Payroll />} />
         </Route>
       </Routes>

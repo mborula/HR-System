@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import './Sidebar.css';
+import './styles/Sidebar.css';
 
 const Sidebar = () => {
   return (
@@ -17,6 +17,13 @@ const Sidebar = () => {
         <li>
           <NavLink to="/edit">Edit employee</NavLink>
         </li>
+        <li>
+            <NavLink to="/add-vacation">Add vacation</NavLink>
+        </li>
+        <li>
+            <NavLink to="/vacation-list">Vacation list</NavLink>
+        </li>
+
       </ul>
     </div>
   );

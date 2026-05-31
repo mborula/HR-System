@@ -1,0 +1,60 @@
+.vacation-list-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.vacation-list-container h1 {
+    color: #00334e;
+    margin-bottom: 20px;
+}
+
+.vacation-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vacation-list-container th,
+.vacation-list-container td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.vacation-list-container th {
+    background-color: #00334e;
+    color: white;
+}
+
+.vacation-list-container tr:nth-child(even) {
+    background-color: #f4f6f8;
+}
+
+.vacation-list-container tr:hover {
+    background-color: #e0e7ed;
+}
+
+.header-text {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-button:hover {
+    opacity: 0.9;
+}
+
+#action-buttons{
+    width: 120px;
+    text-align: center;
+}

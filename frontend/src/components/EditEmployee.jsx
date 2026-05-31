@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./EditEmployee.css";
+import "./styles/EditEmployee.css";
 import { useLocation } from "react-router-dom";
 
 export default function EditEmployee() {

@@ -1,0 +1,51 @@
+.add-vacation-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f4f6f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: "Open Sans", sans-serif;
+    color: #333;
+}
+
+.add-vacation-container h1 {
+    color: #00334e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.add-vacation-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-vacation-container input,
+.add-vacation-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.add-vacation-container button {
+    background-color: #00334e;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-vacation-container button:hover {
+    background-color: #004d73;
+}
+
+.success-message {
+    color: #28a745;
+    text-align: center;
+}

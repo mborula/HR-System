@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./EmployeeList.css";
+import "./styles/EmployeeList.css";
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
@@ -80,7 +80,7 @@ export default function EmployeeList() {
               <td>{emp.position}</td>
               <td>{emp.salary}</td>
               <td>{emp.id}</td>
-              <td>
+              <td className="action-buttons">
                   <button className="edit-button" onClick={() => openEdit(emp.id)}>Edit</button>
                   <button className="delete-button" onClick={() => deleteEmployee(emp.id)}> Delete </button>
               </td>
