@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/EmployeeList.css";
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const openEdit = (id) => {
-    window.location.href = `/edit?id=${id}`;
+    navigate(`/edit?id=${id}`);
   };
 
   const fetchEmployees = () => {
@@ -60,6 +62,7 @@ export default function EmployeeList() {
             <th>Email</th>
             <th>Phone</th>
             <th>Position</th>
+            <th>Department</th>
             <th>Salary</th>
             <th>ID</th>
             <th>Actions</th>
@@ -78,6 +81,7 @@ export default function EmployeeList() {
               <td>{emp.email}</td>
               <td>{emp.phone}</td>
               <td>{emp.position}</td>
+              <td>{emp.department ? emp.department.name : "-"}</td>
               <td>{emp.salary}</td>
               <td>{emp.id}</td>
               <td className="action-buttons">

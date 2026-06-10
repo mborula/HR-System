@@ -13,18 +13,27 @@ export default function AddVacation() {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        fetchEmployees();
-    }, []);
+        let ignore = false;
 
-    const fetchEmployees = async () => {
-        try {
-            const response = await fetch("http://localhost:9000/api/employees");
-            const data = await response.json();
-            setEmployees(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+        const loadEmployees = async () => {
+            try {
+                const response = await fetch("http://localhost:9000/api/employees");
+                const data = await response.json();
+
+                if (!ignore) {
+                    setEmployees(data);
+                }
+            } catch {
+                console.error("Error loading employees");
+            }
+        };
+
+        loadEmployees();
+
+        return () => {
+            ignore = true;
+        };
+    }, []);
 
     const handleChange = (e) => {
         setFormData({
@@ -59,7 +68,7 @@ export default function AddVacation() {
             } else {
                 setMessage("Error while adding vacation");
             }
-        } catch (error) {
+        } catch {
             setMessage("Server connection error");
         }
     };

@@ -28,15 +28,18 @@
   gap: 15px;
 }
 
-.add-employee-container input {
+.add-employee-container input,
+.add-employee-container select {
   padding: 12px 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
   transition: 0.2s;
+  background-color: white;
 }
 
-.add-employee-container input:focus {
+.add-employee-container input:focus,
+.add-employee-container select:focus {
   border-color: #00334e;
   outline: none;
 }

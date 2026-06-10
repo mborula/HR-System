@@ -1,0 +1,77 @@
+.department-list-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.department-list-container h1 {
+  color: #00334e;
+  margin-bottom: 20px;
+}
+
+.department-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.department-form input {
+  width: 300px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.department-form input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+.department-form button {
+  padding: 10px 18px;
+  background-color: #00334e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.department-form button:hover {
+  background-color: #005877;
+}
+
+.department-message {
+  text-align: center;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.department-list-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.department-list-container th,
+.department-list-container td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.department-list-container th {
+  background-color: #00334e;
+  color: white;
+}
+
+.department-list-container tr:nth-child(even) {
+  background-color: #f4f6f8;
+}
+
+.department-list-container tr:hover {
+  background-color: #e0e7ed;
+}

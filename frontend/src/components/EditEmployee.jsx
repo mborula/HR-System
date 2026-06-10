@@ -10,8 +10,32 @@ export default function EditEmployee() {
 
     const [employeeId, setEmployeeId] = useState(urlId || "");
     const [form, setForm] = useState(null);
+    const [departments, setDepartments] = useState([]);
 
-    const fetchEmployee = async (id) => {
+    useEffect(() => {
+        let ignore = false;
+
+        const loadDepartments = async () => {
+            try {
+                const response = await fetch("http://localhost:9000/api/departments");
+                const data = await response.json();
+
+                if (!ignore) {
+                    setDepartments(data);
+                }
+            } catch {
+                console.error("Error loading departments");
+            }
+        };
+
+        loadDepartments();
+
+        return () => {
+            ignore = true;
+        };
+    }, []);
+
+    const loadEmployee = async (id, ignore = false) => {
         try {
             const res = await fetch(`http://localhost:9000/api/employees/${id}`);
 
@@ -29,18 +53,55 @@ export default function EditEmployee() {
                 return;
             }
 
-            setForm(data);
+            if (!ignore) {
+                setForm(data);
+            }
 
-        } catch (err) {
-            console.error(err);
+        } catch {
             alert("Server connection error");
         }
     };
 
     useEffect(() => {
-        if (urlId) {
-            fetchEmployee(urlId);
-        }
+        let ignore = false;
+
+        const loadEmployeeFromUrl = async () => {
+            if (!urlId) return;
+
+            try {
+                const res = await fetch(`http://localhost:9000/api/employees/${urlId}`);
+
+                if (!res.ok) {
+                    alert("Employee not found in the database");
+                    if (!ignore) {
+                        setForm(null);
+                    }
+                    return;
+                }
+
+                const data = await res.json();
+
+                if (!data || !data.id) {
+                    alert("Employee not found in the database");
+                    if (!ignore) {
+                        setForm(null);
+                    }
+                    return;
+                }
+
+                if (!ignore) {
+                    setForm(data);
+                }
+            } catch {
+                alert("Server connection error");
+            }
+        };
+
+        loadEmployeeFromUrl();
+
+        return () => {
+            ignore = true;
+        };
     }, [urlId]);
 
     const handleChange = (e) => {
@@ -50,16 +111,37 @@ export default function EditEmployee() {
         });
     };
 
+    const handleDepartmentChange = (e) => {
+        const departmentId = e.target.value;
+
+        setForm({
+            ...form,
+            department: departmentId
+                ? { id: Number(departmentId) }
+                : null
+        });
+    };
+
+    const buildEmployeePayload = () => {
+        return {
+            ...form,
+            salary: Number(form.salary),
+            department: form.department?.id
+                ? { id: Number(form.department.id) }
+                : null
+        };
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/employees/${form.id}`,
+                `http://localhost:9000/api/employees/${form.id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(form)
+                    body: JSON.stringify(buildEmployeePayload())
                 }
             );
 
@@ -68,7 +150,7 @@ export default function EditEmployee() {
             } else {
                 alert("Error updating employee");
             }
-        } catch (error) {
+        } catch {
             alert("Server error");
         }
     };
@@ -85,7 +167,7 @@ export default function EditEmployee() {
                 onChange={(e) => setEmployeeId(e.target.value)}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                        fetchEmployee(employeeId);
+                        loadEmployee(employeeId);
                     }
                 }}
             />
@@ -100,6 +182,19 @@ export default function EditEmployee() {
                     <input name="phone" value={form.phone} onChange={handleChange} />
                     <input name="position" value={form.position} onChange={handleChange} />
                     <input name="salary" value={form.salary} onChange={handleChange} />
+                    <select
+                        name="departmentId"
+                        value={form.department?.id || ""}
+                        onChange={handleDepartmentChange}
+                        required
+                    >
+                        <option value="">Select department</option>
+                        {departments.map((department) => (
+                            <option key={department.id} value={department.id}>
+                                {department.name}
+                            </option>
+                        ))}
+                    </select>
 
                     <button type="submit">Update</button>
                 </form>

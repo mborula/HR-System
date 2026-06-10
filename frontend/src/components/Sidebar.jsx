@@ -23,7 +23,9 @@ const Sidebar = () => {
         <li>
             <NavLink to="/vacation-list">Vacation list</NavLink>
         </li>
-
+          <li>
+              <NavLink to="/departments">Departments</NavLink>
+          </li>
       </ul>
     </div>
   );
